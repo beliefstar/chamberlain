@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhenxin.chamberlain.dao.mapper.ConsumeMapper">
+  <resultMap id="BaseResultMap" type="com.zhenxin.chamberlain.dao.pojo.Consume">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="consume_id" jdbcType="VARCHAR" property="consumeId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="amount" jdbcType="VARCHAR" property="amount" />
+    <result column="happen_date" jdbcType="TIMESTAMP" property="happenDate" />
+    <result column="del_flg" jdbcType="BIT" property="delFlg" />
+  </resultMap>
+</mapper>

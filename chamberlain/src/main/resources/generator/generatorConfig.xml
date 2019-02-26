@@ -13,7 +13,7 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.crc.common.service.IBaseMapper"/>
+            <property name="mappers" value="com.zhenxin.chamberlain.common.mapper.BaseMapper"/>
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -27,7 +27,7 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mapper">
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 

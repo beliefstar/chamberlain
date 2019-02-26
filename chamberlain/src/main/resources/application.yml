@@ -3,6 +3,6 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/chamberlain?useunicode=true&charactorencoding=utf-8
+    url: jdbc:mysql://localhost:3306/chamberlain?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: zhenxin
     password: 123456
