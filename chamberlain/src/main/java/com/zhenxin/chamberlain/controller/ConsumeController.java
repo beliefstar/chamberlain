@@ -1,6 +1,7 @@
 package com.zhenxin.chamberlain.controller;
 
 import com.zhenxin.chamberlain.dao.pojo.Consume;
+import com.zhenxin.chamberlain.dto.ConsumeQueryDTO;
 import com.zhenxin.chamberlain.service.ConsumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +39,7 @@ public class ConsumeController {
     }
 
     @PostMapping("/select")
-    public List<Consume> select(@RequestBody Consume consume) {
+    public List<Consume> select(@RequestBody ConsumeQueryDTO consume) {
         return consumeService.select(consume);
     }
 }

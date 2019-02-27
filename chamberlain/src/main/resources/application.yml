@@ -6,3 +6,19 @@ spring:
     url: jdbc:mysql://localhost:3306/chamberlain?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: zhenxin
     password: 123456
+  rabbitmq:
+    host: 172.18.252.119
+    port: 5672
+    username: zhenxin
+    password: 123456
+    binding:
+      default-max-retry-count: 5
+      producer:
+        exchange: index_topic
+      consumer:
+        index:
+          queue: index_queue
+          route-key: opt.#
+          exchange: index_topic
+
+elasticsearch-nodes: 172.18.252.119:9200

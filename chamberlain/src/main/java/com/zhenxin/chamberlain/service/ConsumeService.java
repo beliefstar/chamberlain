@@ -1,6 +1,7 @@
 package com.zhenxin.chamberlain.service;
 
 import com.zhenxin.chamberlain.dao.pojo.Consume;
+import com.zhenxin.chamberlain.dto.ConsumeQueryDTO;
 
 import java.util.List;
 
@@ -17,5 +18,7 @@ public interface ConsumeService {
 
     Consume update(Consume consume);
 
-    List<Consume> select(Consume consume);
+    List<Consume> select(ConsumeQueryDTO consume);
+
+    Consume findById(String consumeId);
 }
