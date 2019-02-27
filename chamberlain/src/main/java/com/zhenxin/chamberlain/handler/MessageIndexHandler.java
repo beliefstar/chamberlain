@@ -1,10 +1,6 @@
 package com.zhenxin.chamberlain.handler;
 
-import com.zhenxin.chamberlain.common.utils.BeanUtils;
-import com.zhenxin.chamberlain.dao.pojo.Consume;
 import com.zhenxin.chamberlain.dto.search.IndexMessage;
-import com.zhenxin.chamberlain.dto.search.IndexTemplate;
-import com.zhenxin.chamberlain.service.ConsumeService;
 import com.zhenxin.chamberlain.service.ElasticsearchService;
 import com.zx.rabbit.common.annotation.RabbitMQHandler;
 import com.zx.rabbit.consume.Consumer;
@@ -23,26 +19,16 @@ public class MessageIndexHandler implements Consumer<IndexMessage> {
     @Autowired
     private ElasticsearchService elasticsearchService;
 
-    @Autowired
-    private ConsumeService consumeService;
-
     @Override
     public boolean handle(IndexMessage indexMessage) {
+        log.info("receive message -->>> {}", indexMessage);
         try {
-            Consume consume = consumeService.findById(indexMessage.getConsumeId());
-            if (consume == null || consume.getDelFlg()) {
-                return true;
-            }
-            IndexTemplate template = new IndexTemplate();
-            BeanUtils.copyProperties(consume, template);
             String operation = indexMessage.getOperation();
             switch (operation) {
                 case IndexMessage.INDEX:
-                    elasticsearchService.index(template);
-                    break;
+                    return elasticsearchService.index(indexMessage);
                 case IndexMessage.REMOVE:
-                    elasticsearchService.remove(template);
-                    break;
+                    return elasticsearchService.remove(indexMessage);
                 default:
                     log.error("未知的操作类型: {}", operation);
             }

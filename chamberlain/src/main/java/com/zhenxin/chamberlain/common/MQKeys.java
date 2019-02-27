@@ -10,6 +10,4 @@ public interface MQKeys {
     String INDEX_TOPIC_NAME = "index_topic";
 
     String INDEX_ROUTE_KEY = "opt.index";
-
-    String UPDATE_ROUTE_KEY = "opt.update";
 }

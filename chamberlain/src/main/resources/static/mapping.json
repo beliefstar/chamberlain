@@ -8,6 +8,9 @@
   "mappings":{
     "_doc":{
       "properties":{
+        "consumeId":{
+          "type":"keyword"
+        },
         "title":{
           "type":"text",
           "analyzer": "ik_max_word",

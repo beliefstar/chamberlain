@@ -1,6 +1,6 @@
 package com.zhenxin.chamberlain.service;
 
-import com.zhenxin.chamberlain.dto.search.IndexTemplate;
+import com.zhenxin.chamberlain.dto.search.IndexMessage;
 
 /**
  * @author xzhen
@@ -9,10 +9,10 @@ import com.zhenxin.chamberlain.dto.search.IndexTemplate;
  */
 public interface ElasticsearchService {
 
-    void index(IndexTemplate indexTemplate);
+    boolean index(IndexMessage indexMessage);
 
 
-    void remove(IndexTemplate indexTemplate);
+    boolean remove(IndexMessage indexMessage);
 
 
 }
